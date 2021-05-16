@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CentralitaHerencia\CentralitaHerencia.csproj">
-      <Project>{14ee2156-35af-492c-a404-29008a9b96a8}</Project>
-      <Name>CentralitaHerencia</Name>
+    <ProjectReference Include="..\CentralitaHerencia_EJ40\CentralitaHerencia_EJ40.csproj">
+      <Project>{7ab83bec-dfbd-4d33-9a78-5a644dd21e94}</Project>
+      <Name>CentralitaHerencia_EJ40</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

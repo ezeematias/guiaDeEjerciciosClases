@@ -15,9 +15,9 @@ namespace CentralitaHerencia
         /// </summary>
         /// <param name="llamada"></param>
         /// <param name="costo"></param>
-        public Local(Llamada llamada, float costo) : base(llamada.Duracion,llamada.NroDestino,llamada.NroOrigen)
-        {            
-            this.costo = costo;
+        public Local(Llamada llamada, float costo) : this(llamada.NroOrigen,llamada.Duracion,llamada.NroDestino,costo)
+        {           
+            
         }
 
         /// <summary>
@@ -27,7 +27,7 @@ namespace CentralitaHerencia
         /// <param name="duracion"></param>
         /// <param name="destino"></param>
         /// <param name="costo"></param>
-        public Local(string origen, float duracion, string destino, float costo) : this(new Llamada(duracion, destino, origen), costo)
+        public Local(string origen, float duracion, string destino, float costo) : base (duracion, destino, origen)
         {
             this.costo = costo;
         }
@@ -35,7 +35,7 @@ namespace CentralitaHerencia
         /// <summary>
         /// Get del costo de llamada.
         /// </summary>
-        public float CostoLlamada
+        public override float CostoLlamada
         {
             get { return this.CalcularCosto(); }
         }
@@ -44,7 +44,7 @@ namespace CentralitaHerencia
         /// Muestra lso datos de la llamada.
         /// </summary>
         /// <returns></returns>
-        public override string Mostrar()
+        protected override string Mostrar()
         {
             StringBuilder sb = new StringBuilder();
             sb.Append(base.Mostrar());
@@ -52,6 +52,29 @@ namespace CentralitaHerencia
             return sb.ToString();
         }
 
+        /// <summary>
+        /// Sobrecarga del ToString.
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return Mostrar();
+        }
+
+        /// <summary>
+        /// Sobrecarga del Equlas.
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            return (obj is Local);   
+        }
+
+        /// <summary>
+        /// Calcula el costo de la llamada.
+        /// </summary>
+        /// <returns>Costo de llamada</returns>
         private float CalcularCosto()
         {
             return this.costo * base.Duracion;

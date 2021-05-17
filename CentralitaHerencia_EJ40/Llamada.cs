@@ -87,6 +87,33 @@ namespace CentralitaHerencia
         }
 
         /// <summary>
+        /// Sobrecarta del operador == para comparar dos llamadas.
+        /// </summary>
+        /// <param name="l1">Primer llamada</param>
+        /// <param name="l2">Segunda llamada</param>
+        /// <returns>True si las llamadas son iguales.</returns>
+        public static bool operator == (Llamada l1, Llamada l2)
+        {
+            if(!(l1 is null) && !(l2 is null) && l1.Equals(l2))
+            {
+                return true;
+            }
+            return false;
+        }
+
+        /// <summary>
+        /// Sobrecarga del operador != para comparar dos llamadas.
+        /// </summary>
+        /// <param name="l1">Primer llamada</param>
+        /// <param name="l2">Segunda llamada</param>
+        /// <returns>True si las llamadas son distintas.</returns>
+        public static bool operator !=(Llamada l1, Llamada l2)
+        {
+            return !(l1 == l2);
+        }
+
+
+        /// <summary>
         /// Tipos de llamadas.
         /// </summary>
         public enum TipoLlamada
